@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   dialogflow: {
-    clientAccessKey: "f56ec0c98e3b446c9299f2534b094f22"//'c0e1af0c13274f40ba8a0639a40ce819'
+    clientAccessKey: 'd637cd39b9fd4eef92f2d19569400ac7'
     ////https://github.com/dialogflow/dialogflow-javascript-client/issues/80
   }
 };
