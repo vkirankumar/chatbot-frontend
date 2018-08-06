@@ -1,0 +1,15 @@
+<div class="container home-wrapper">
+  <div class="row home-content" #messageContainer>
+    <div class="col-md-12" *ngFor="let message of chatService.chats">
+      <app-item [dataProvider]="message"></app-item>
+    </div>
+  </div>
+  <div class="row home-footer">
+    <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9" align="center">
+      <input type="text" class="form-control" (keyup.enter)="onKeyUp($event)" placeholder="Ask something..." #messageInput>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3" align="center">
+      <button type="button" class="btn btn-success" (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

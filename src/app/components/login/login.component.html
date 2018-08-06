@@ -1,0 +1,46 @@
+<div class="login-container">
+  <div class="login-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+          <h2 class="text-center">Hello!</h2>
+          <form [formGroup]="angForm" novalidate>
+            <div class="form-group">
+              <label>Name:</label>
+              <input class="form-control is-invalid" formControlName="name" type="text" [ngClass]="{'text-success' : true}" #name>
+              <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)">
+                <div *ngIf="angForm.controls['name'].errors.required" style="color:red">
+                  Name is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email address:</label>
+              <input class="form-control" formControlName="address" type="text">
+              <div *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)">
+                <div *ngIf="angForm.controls['address'].errors.required" style="color:red">
+                  Email adddress is required.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Language: </label>
+              <select class="form-control" (change)="onLanguageChange($event.target.value)">
+                <option *ngFor="let lang of languages" value={{lang.value}}>
+                  {{lang.key}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group" align="center">
+              <button type="submit" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-success" (click)="onClick($event)"
+                align="center">
+                Enter >>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<nav class="nav navbar-default">
+    <label class="navbar-brand">PHILIPS</label>
+    <!-- <ul class="nav navbar-nav">
+        <li class="dropdown" appDropDown>
+            <a href="#" class="dropdown-toggle" role="button">Language
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#">English</a>
+                </li>
+                <li>
+                    <a href="#">Portuguese</a>
+                </li>
+            </ul>
+        </li>
+    </ul> -->
+    <img *ngIf="isLogout" src="https://cdn2.iconfinder.com/data/icons/flaticons-stroke/16/logout-1-512.png" (click)="onLogoutClick()"
+        class="img-responsive pull-right" style="height: 20px; margin-right: 10px; margin-top:15px; cursor: pointer;">
+
+</nav>
