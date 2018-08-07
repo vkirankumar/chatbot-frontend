@@ -1,5 +1,5 @@
 {
-  "name": "tasy-chat-bot",
+  "name": "tasybot",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,7 +23,6 @@
     "angular2-uuid": "^1.1.1",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
-    "ngx-ai": "^1.1.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

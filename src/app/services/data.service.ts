@@ -4,7 +4,6 @@ import { ChatService } from './chat.service';
 import { ChatItem, MessageType } from '../model/chat-item.model';
 import { UUID } from 'angular2-uuid';
 import { environment } from '../../environments/environment';
-//import { ApiAiClient } from 'api-ai-javascript';
 
 @Injectable({
     providedIn: 'root'
@@ -14,11 +13,10 @@ export class DataService {
     loginEvent = new EventEmitter<any>();
     logoutEvent = new EventEmitter<any>();
     private baseURL: string = "https://api.dialogflow.com/v1/query/";
-    isActiveSession:boolean = false;
+    isActiveSession: boolean = false;
+    sessionId: String = UUID.UUID();
 
     private token: string = environment.dialogflow.clientAccessKey;
-    //private apiClient: ApiAiClient = new ApiAiClient({ accessToken: this.token });
-
 
     constructor(private http: HttpClient, private chatService: ChatService) { }
 
@@ -26,7 +24,7 @@ export class DataService {
         let data = {
             query: query,
             lang: this.chatService.selectedLanguage,
-            sessionId: UUID.UUID()
+            sessionId: this.sessionId
         }
         return this.http
             .post(this.baseURL, data, {
@@ -39,14 +37,6 @@ export class DataService {
                 this.chatService.chats.push(new ChatItem(res['result'].speech, MessageType.SERVER));
                 this.messageAcknowledgeEvent.emit();
             });
-
-
-        // return this.apiClient.textRequest(query)
-        //     .then(res => {
-        //         const speech = res.result.fulfillment.speech;
-        //         this.chatService.chats.push(new ChatItem(speech, MessageType.SERVER));
-        //         this.messageAcknowledgeEvent.emit();
-        //     });
 
     }
 }
