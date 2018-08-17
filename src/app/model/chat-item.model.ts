@@ -1,5 +1,5 @@
 export class ChatItem {
-    constructor(public message:String, public type:MessageType) {}
+    constructor(public message:string, public type:MessageType) {}
 
     getProfileImage() {
         if(this.type == MessageType.SERVER) {

@@ -1,9 +1,8 @@
 <div class="row messageItem-wrapper">
   <div  class="messageItem-content" [ngClass]="(dataProvider.type == 'right') ? 'pull-right' : 'pull-left'">
     <img class="img-response" style="height: 50px" [src]="dataProvider.getProfileImage()">
-    <p class="messageItem-text" [innerHTML]="dataProvider.message"
-      [ngClass]="(dataProvider.type == 'right') ? 'messageItem-text-user' : 'messageItem-text-server'">      
-    </p>
-  </div>  
-  
+    <p class="messageItem-text" [innerHTML]="getSafeInnerHtml()"
+      [ngClass]="(dataProvider.type == 'right') ? 'messageItem-text-user' : 'messageItem-text-server'">
+    </p>    
+  </div>    
 </div>

@@ -3,14 +3,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { ChatService } from '../../services/chat.service';
-import { ChatItem, MessageType } from '../../model/chat-item.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   angForm: FormGroup;
   languages: { key: String, value: String }[] = [];
   @ViewChild("name") nameField: ElementRef;
@@ -21,11 +20,16 @@ export class LoginComponent {
     this.createForm();
     this.languages = chatService.languages;
   }
+
   createForm() {
     this.angForm = this.formBuilder.group({
       name: ['', Validators.required],
       address: ['']
     });
+  }
+
+  ngOnInit() {
+    this.nameField.nativeElement.focus();
   }
 
   onClick() {

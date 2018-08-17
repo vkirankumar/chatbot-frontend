@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ChatItem } from '../../../model/chat-item.model';
+import { bypassSanitizationTrustHtml } from '@angular/core/src/sanitization/sanitization';
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-item',
@@ -8,11 +10,14 @@ import { ChatItem } from '../../../model/chat-item.model';
 })
 export class ItemComponent implements OnInit {
 
-  @Input("dataProvider") dataProvider:ChatItem;
+  constructor(private sanitizer:DomSanitizer) {}
 
-  constructor() { }
+  @Input("dataProvider") dataProvider:ChatItem;
 
   ngOnInit() {
   }
 
+  getSafeInnerHtml() {
+    return this.sanitizer.bypassSecurityTrustHtml(this.dataProvider.message);
+  }
 }
