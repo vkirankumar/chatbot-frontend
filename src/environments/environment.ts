@@ -8,6 +8,12 @@ export const environment = {
     clientAccessKey: "d637cd39b9fd4eef92f2d19569400ac7"
   }
 };
+
+export enum SupportedLanguages {
+  ENGLISH = "en",
+  GERMAN = "de",
+  PORTUGUESE = "pt-br"
+}
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
